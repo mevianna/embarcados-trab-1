@@ -18,8 +18,8 @@ typedef struct {
 }Tipo_CABEC;
 
 typedef struct {
-    char nome[TAMANHO_NOME];
     uint8_t status;
+    char nome[TAMANHO_NOME];
     uint16_t tamanho;
     uint8_t bloco_direto[TAMANHO_BLOCO];
     uint16_t ponteiro_indireto;
