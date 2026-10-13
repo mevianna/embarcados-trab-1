@@ -5,11 +5,8 @@
 #include <stddef.h>
 #include <stdio.h>
 
-
-#define QUANTIDADE_BLOCOS 1911
+#define QUANTIDADE_BLOCOS 947
 #define MARCADOR_FIM 65535
-
-
 typedef struct {
     int numero_inodo;
     uint16_t posicao_atual;
