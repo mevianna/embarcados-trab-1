@@ -2,18 +2,10 @@
 #include <string.h>
 #include "sa_api.h"
 
-int main(void)
+extern "C" void app_main(void)
 {
-    char buffer[70], a;
+    char buffer[70];
     ARQUIVO *A, *B, *C;
-
-    printf("Tecle [ENTER] para iniciar\r");
-    while (1)
-    {
-        a = getchar();
-        if (a == 13) break;
-    }
-    printf("OK \r");
 
     api_init();
     api_formata(); 
@@ -42,9 +34,4 @@ int main(void)
 
     lista_todos();
 
-    while (1)
-    {
-    }
-
-    return 0;
 }
