@@ -25,18 +25,18 @@ void escreveInodo(int numero, Tipo_INODO inodo)
                  + numero * TAMANHO_INODO;
 
     memoria_fwrite(
-        inodo.nome,
-        posicao,
-        TAMANHO_NOME
-    );
-    posicao += TAMANHO_NOME;
-
-    memoria_fwrite(
         &inodo.status,
         posicao,
         sizeof(uint8_t)
     );
     posicao += sizeof(uint8_t);
+
+    memoria_fwrite(
+        inodo.nome,
+        posicao,
+        TAMANHO_NOME
+    );
+    posicao += TAMANHO_NOME;
 
     memoria_fwrite(
         &inodo.tamanho,
@@ -65,18 +65,18 @@ void leiaInodo(int numero, Tipo_INODO *inodo)
                  + numero * TAMANHO_INODO;
 
     memoria_fread(
-        inodo->nome,
-        posicao,
-        TAMANHO_NOME
-    );
-    posicao += TAMANHO_NOME;
-
-    memoria_fread(
         &inodo->status,
         posicao,
         sizeof(uint8_t)
     );
     posicao += sizeof(uint8_t);
+
+    memoria_fread(
+        inodo->nome,
+        posicao,
+        TAMANHO_NOME
+    );
+    posicao += TAMANHO_NOME;
 
     memoria_fread(
         &inodo->tamanho,
