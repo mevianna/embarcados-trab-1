@@ -81,7 +81,7 @@ int sa_bloco_valido(uint16_t bloco)
     return bloco < QUANTIDADE_BLOCOS;
 }
 
-static void leia_proximo_bloco(uint16_t bloco, uint16_t *proximo)
+static void leia_proximo_bloco_livre(uint16_t bloco, uint16_t *proximo)
 {
     if (proximo == NULL || !sa_bloco_valido(bloco)) return;
     memoria_fread(proximo, endereco_ponteiro(bloco), sizeof(*proximo));
@@ -95,7 +95,7 @@ int sa_aloca_bloco(uint16_t *bloco)
     leiaCabec(&cabec);
     if (cabec.primeiro_bloco_livre == MARCADOR_FIM || !sa_bloco_valido(cabec.primeiro_bloco_livre)) return -1;
     *bloco = cabec.primeiro_bloco_livre;
-    leia_proximo_bloco(*bloco, &proximo);
+    leia_proximo_bloco_livre(*bloco, &proximo);
     cabec.primeiro_bloco_livre = proximo;
     escreveCabec(cabec);
     return 0;
